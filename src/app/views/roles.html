@@ -1,0 +1,133 @@
+    <div class="wrapper">
+     <!-- Main content -->
+     <section class="content">
+      <div class="row">
+
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Roles del Sistema</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" #formRol="ngForm" (ngSubmit)="onSubmit()" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="lblName" class="col-sm-2 control-label">Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="rol.name" placeholder="Nombre" required/>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="lblMnemonic" class="col-sm-2 control-label">Nemónico</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="mnemonic" #mnemonic="ngModel" [(ngModel)]="rol.mnemonic" placeholder="Nemónico" required/>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="lblDescription" class="col-sm-2 control-label">Descripción</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="rol.description" placeholder="Descripción del Componente" required/>
+                  </div>
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="button" (click)="newRegister()" class="btn btn-info">Nuevo</button>
+                <button type="submit" style="margin-left: 10px" class="btn btn-success">{{(rol.idRol == "" || rol.idRol == undefined) ? "Guardar":"Actualizar"}}</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="box" >
+       <div class="box-header">
+        <h3 class="box-title">Funcionalidades</h3>
+      </div>
+      <div class="box-body">
+        <div class="box">	
+         <div class="col-md-6">
+          <div class="box-header">
+           <h3 class="box-title">Funcionalidades del Sistema</h3>
+         </div>
+         <div class="box-body" >
+          <div style="width: 100%; float:left" *ngFor="let mrl of meansRolesLess">
+            <div id="divMenuComponent">
+              <span class="glyphicon glyphicon-hand-up"> {{mrl.name}} </span>
+            </div>
+            <div id="divButtonComponent" (click)="crudMean('add',mrl.idMean);" class="btn btn-info btn-lg">
+              <span  class="glyphicon glyphicon-arrow-right"></span> Añadir 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="box-header">
+         <h3 class="box-title">Funcionalidades del Rol</h3>
+       </div>
+       <div class="box-body" >
+        <div style="width: 100%; float:left" *ngFor="let m of rol.means">
+          <div id="divButtonComponent" (click)="crudMean('delete',m.idMean);" class="btn btn-info btn-lg">
+            <span  class="glyphicon glyphicon-arrow-left"></span> Eliminar  
+          </div>
+          <div id="divMenuComponent">
+            <span class="glyphicon glyphicon-hand-up"> {{m.name}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Roles del sistema</h3>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Mnemonico</th>
+          <th>Descripcion</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody class="rowSelected">
+        <tr (click)="selectRol(r)" *ngFor="let r of roles">
+          <td>{{r.name}}</td>
+          <td>{{r.mnemonic}}</td>
+          <td>{{r.description}}</td>
+          <td><a (click)="deleteRegister(r)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Nombre</th>
+          <th>Mnemonico</th>
+          <th>Descripcion</th>
+          <th>Eliminar</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>
+<!-- /.box -->
+</section>
+<!-- /.content -->
+
+
+</div>

@@ -1,0 +1,174 @@
+<div class="wrapper">
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Horizontal Form -->
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<h3 class="box-title">Usuarios del Sistema</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+					<form class="form-horizontal" #formUser="ngForm" (ngSubmit)="onSubmit()" method="post">
+						<div class="box-body">
+							<div class="row">
+								<div class="col-md-2" style="text-align: center">
+									<img src="data:image/jpeg;base64,{{
+									user.photo ?user.photo:'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'}}" style="height: 180px; width: 90%"  class="user-image" alt="User Image">
+								</div>
+								<div class="col-md-10">
+									<div class="row" >
+										<div class="col-md-6">
+											<div class="form-group" >
+												<label for="lblIdUser" class="col-sm-2 control-label">Username</label>
+												<div class="col-sm-10">
+													<input type="text" [disabled]="!isNewRegister" class="form-control" name="idUser" #idUser="ngModel" [(ngModel)]="user.idUser" placeholder="Username" required/>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="lblPassword" class="col-sm-2 control-label">Password</label>
+												<div class="col-sm-10">
+													<input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password" placeholder="Password" required/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="lblName" class="col-sm-2 control-label">Nombre</label>
+												<div class="col-sm-10">
+													<input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="user.name" placeholder="Nombre del Usuario" required/>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="lblLastName" class="col-sm-2 control-label">Apellido</label>
+												<div class="col-sm-10">
+													<input type="text" class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" placeholder="Apellido del Usuario" required/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="lblPhone" class="col-sm-2 control-label">Telefono</label>
+												<div class="col-sm-10">
+													<input type="text" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Telefono del Usuario" required/>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="lblAddress" class="col-sm-2 control-label">Direccion</label>
+												<div class="col-sm-10">
+													<input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="user.address" placeholder="Direccion del Usuario" required/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.box-body -->
+						<div class="box-footer">
+							<button type="button" (click)="newRegister()" class="btn btn-info">Nuevo</button>
+							<button type="submit" style="margin-left: 10px" class="btn btn-success">{{isNewRegister?"Guardar":"Actualizar"}}</button>
+						</div>
+						<!-- /.box-footer -->
+					</form>
+				</div>
+
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+
+		<div class="box" >
+			<div class="box-header">
+				<h3 class="box-title">Roles</h3>
+			</div>
+			<div class="box-body">
+				<div class="box">	
+					<div class="col-md-6">
+						<div class="box-header">
+							<h3 class="box-title">Roles del Sistema</h3>
+						</div>
+						<div class="box-body" >
+							<div style="width: 100%; float:left" *ngFor="let rul of rolesUserLess">
+								<div id="divMenuComponent">
+									<span class="glyphicon glyphicon-hand-up"> {{rul.name}} </span>
+								</div>
+								<div id="divButtonComponent" (click)="crudRol('add',rul.idRol);" class="btn btn-info btn-lg">
+									  <span  class="glyphicon glyphicon-arrow-right"></span> Añadir	
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="box-header">
+							<h3 class="box-title">Roles del Usuario</h3>
+						</div>
+						<div class="box-body" >
+							<div style="width: 100%; float:left" *ngFor="let r of user.roles">
+								<div id="divButtonComponent" (click)="crudRol('delete',r.idRol);" class="btn btn-info btn-lg">
+									  <span  class="glyphicon glyphicon-arrow-left"></span> Eliminar	
+								</div>
+								<div id="divMenuComponent">
+									<span class="glyphicon glyphicon-hand-up"> {{r.name}} </span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Usuarios del sistema</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="example1" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Nombres</th>
+							<th>Apellidos</th>
+							<th>Teléfonos</th>
+							<th>Dirección</th>
+						</tr>
+					</thead>
+					<tbody class="rowSelected">
+						<tr (click)="selectUser(u)" *ngFor="let u of users">
+							<td>{{u.name}}</td>
+							<td>{{u.lastName}}</td>
+							<td>{{u.phone}}</td>
+							<td>{{u.address}}</td>
+							<td><a (click)="deleteRegister(u)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Nombres</th>
+							<th>Apellidos</th>
+							<th>Teléfonos</th>
+							<th>Dirección</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</section>
+	<!-- /.content -->
+
+
+</div>

@@ -1,0 +1,103 @@
+
+
+<div class="wrapper">
+	    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Funcionalidades del Sistema</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" #formMean="ngForm" (ngSubmit)="onSubmit()" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="lblName" class="col-sm-2 control-label">Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="mean.name" placeholder="Nombre" required/>
+                     <span *ngIf="mean.name && !name.valid">Campo Obligatorio</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="lblMnemonic" class="col-sm-2 control-label">Nemónico</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="mnemonic" #mnemonic="ngModel" [(ngModel)]="mean.mnemonic" placeholder="Nemónico" required/>
+                  </div>
+                </div>
+
+                 <div class="form-group">
+                  <label for="lblComponent" class="col-sm-2 control-label">Componente</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="component" #component="ngModel" [(ngModel)]="mean.component" placeholder="Nombre del Componente" required/>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="lblDEscription" class="col-sm-2 control-label">Descripción</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="mean.description" placeholder="Descripción del Componente" required/>
+                  </div>
+                </div>
+                
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="button" (click)="newRegister()" class="btn btn-info">Nuevo</button>
+                 <button type="submit" style="margin-left: 10px" class="btn btn-success">{{(mean.idMean == "" || mean.idMean == undefined) ? "Guardar":"Actualizar"}}</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+    <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Funcionalidades del sistema</h3>
+    </div>
+            <!-- /.box-header -->
+    <div class="box-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Mnemonico</th>
+          <th>Nombre del Componente</th>
+          <th>Descripcion</th>
+          <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody class="rowSelected">
+        <tr (click)="selectFunctionality(m)" *ngFor="let m of means">
+          <td>{{m.name}}</td>
+          <td>{{m.mnemonic}}</td>
+          <td>{{m.component}}</td>
+          <td>{{m.description}}</td>
+          <td><a (click)="deleteRegister(m)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <th>Nombre</th>
+          <th>Mnemonico</th>
+          <th>Nombre del Componente</th>
+          <th>Descripcion</th>
+          <th>Eliminar</th>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+            <!-- /.box-body -->
+  </div>
+          <!-- /.box -->
+    </section>
+    <!-- /.content -->
+</div>

@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit{
 
 	onSubmit(){
 		AppComponent.modal = true;
+		console.log(sha256(this.login.password));
 		this._loginService.getLogin( new loginservice001(this.login.username, sha256(this.login.password)) )
 		.subscribe(proccessjsonOutput =>{
 			AppComponent.modal = false;
@@ -38,7 +39,6 @@ export class LoginComponent implements OnInit{
 				this.router.navigate(['/home']);
 			}
 			else{
-				alert(this.proccessjsonOutput);
 				alert(this.proccessjsonOutput.error.messageError);
 			}
 

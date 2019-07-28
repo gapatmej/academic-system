@@ -4,7 +4,7 @@ import { Component, NgModule } from '@angular/core';
 	selector: 'app-root',
   	templateUrl: './app.component.html'
 })
-as
+
 export class AppComponent {
   title = 'academic-system';
   static modal:boolean ;

@@ -15,6 +15,6 @@ export const classesMap = {
 }
 
 export const GlobalVariable = Object.freeze({
-     BASE_API_URL: 'http://localhost:777/academic-system-api/proccessjson.php',
+     BASE_API_URL: 'http://localhost:8081/academic-system-api/proccessjson.php',
      idUser:''
  });
